@@ -12,7 +12,7 @@ export default function Footer() {
           <a href="https://github.com/Arch9Dev" target="_blank" rel="noreferrer" className="hover:text-accent transition-colors">
             GITHUB
           </a>
-          <a href="https://www.linkedin.com/in/benjamin-dutoit/" target="_blank" rel="roreferrer" className="hover:text-accent transition-colors">
+          <a href="https://www.linkedin.com/in/benjamin-dutoit/" target="_blank" rel="noreferrer" className="hover:text-accent transition-colors">
             LINKEDIN
           </a>
           <a href="mailto:bendt03@outlook.co.nz" className="hover:text-accent transition-colors">

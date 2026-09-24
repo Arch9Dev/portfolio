@@ -39,7 +39,7 @@ const groups = [
 
 export default function Skills() {
   return (
-    <section className="border-b border-border">
+    <section id="skills" className="border-b border-border">
       <div className="mx-auto max-w-content px-6 py-20 sm:px-8 sm:py-28">
         <p className="mono mb-3 text-xs tracking-widest text-muted">SKILLS / TECHNOLOGIES</p>
         <h2 className="mb-14 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">

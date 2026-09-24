@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Ben du Toit — Portfolio
 
 Stack: React + TypeScript + Tailwind CSS (Vite).
@@ -18,11 +17,9 @@ npm run build
 
 Output goes to `dist/`. Deploy `dist/` to Vercel, Netlify, or any static host.
 
-## Before you publish — placeholders to fill in
+## Before you publish — remaining items
 
-- **Email**: replace `your-email@example.com` in `src/components/Contact.tsx` and `src/components/Footer.tsx`.
-- **LinkedIn**: replace the `#` links in `src/components/Navbar.tsx`, `src/components/Contact.tsx` and `src/components/Footer.tsx` with your real LinkedIn URL.
-- **Screenshots**: `src/components/SelectedWork.tsx` currently shows a placeholder box for each project. Replace it with an `<img>` of a real StockAura / FurTherapy screenshot once you have one you're happy with.
+- **Screenshots**: `src/components/SelectedWork.tsx` currently doesn't render the project screenshots even though `src/data/projects.ts` has them wired up — decide whether to bring the `<img>` back in.
 - **StockAura GitHub link**: currently points at your GitHub profile — update to the exact repo URL if it differs.
 - **FurTherapy live demo**: no link is shown since it isn't currently live. Add one back into `src/data/projects.ts` (the `demo` field) once it's redeployed.
 
@@ -30,6 +27,3 @@ Output goes to `dist/`. Deploy `dist/` to Vercel, Netlify, or any static host.
 
 - "Currently Building" features **FurTherapy** (in progress), and **StockAura** is presented as feature-complete in Selected Work — this reflects your latest project status rather than the original brief's assumption that StockAura was the current build. Swap these back if you'd rather feature StockAura as the active build.
 - Only StockAura and FurTherapy get full case studies, since they're your most substantial, real projects. Your other projects (TicketFlow, MediTrack, Job Tracker) aren't included since you're no longer developing them — happy to add lightweight entries for these if you want them mentioned somewhere.
-=======
-# portfolio
->>>>>>> d4e34e4be910f833490a753ac428c4015abe2bcd

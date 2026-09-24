@@ -2,15 +2,16 @@ const facts = [
   ['Based in', 'Auckland, New Zealand'],
   ['Focus', 'Software Engineering'],
   ['Interests', 'Backend, SaaS, Web Applications, Systems, Cybersecurity'],
+  ['Looking for', 'Graduate / junior software engineering roles'],
 ]
 
 const changelog = [
   { year: '2021', items: ['Started formal IT study'] },
   { year: '2024', items: ['Software Development Diploma'] },
-  { year: '2025', items: ['Bachelor of Software Engineering'] },
+  { year: '2025', items: ['Bachelor of Software Engineering — Yoobee College of Creative Innovation'] },
   {
     year: '2026',
-    items: ['Building StockAura', 'Freelance development', 'Developing professional software engineering skills'],
+    items: ['Freelance development — FurTherapy', 'Building StockAura', 'Developing professional software engineering skills'],
   },
 ]
 

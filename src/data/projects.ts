@@ -7,6 +7,7 @@ export type Project = {
   name: string
   tagline: string
   summary: string
+  built: string[]
   stack: string[]
   status: string
   github?: string
@@ -25,12 +26,61 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: 'stockaura',
+    id: 'furtherapy',
     number: '001',
+    name: 'FurTherapy',
+    tagline: 'Booking Platform for a Real Client',
+    summary:
+      'A booking and admin platform built for a canine massage therapy business in Mission Bay, Auckland — a real freelance client, not a coursework exercise.',
+    built: [
+      'Public booking platform with a live availability system',
+      'Admin login and dashboard, separate from the public booking flow',
+      'Automated email notifications for booking confirmations (Nodemailer)',
+      'Mobile-responsive UI, including a hamburger navigation menu',
+      'Security hardening: HMAC-SHA256 signed session tokens, rotated credentials, restricted CORS',
+    ],
+    stack: ['SvelteKit', 'React / Express', 'PostgreSQL', 'Nodemailer'],
+    status: 'In progress — rebuild for redeployment',
+    demo: undefined,
+    screenshot: furtherapyScreenshot,
+    caseStudy: {
+      problem:
+        'The client needed a public-facing site where customers could view services and book appointments, plus an admin view to manage availability — without relying on manual back-and-forth messaging.',
+      solution:
+        'A multi-page booking platform: a marketing homepage, an availability system, a booking wizard for customers, an admin login for the business owner, and automated email notifications so both sides stay informed without manual follow-up.',
+      engineering: [
+        'Admin authentication, separate from the public booking flow',
+        'An availability system driving what booking slots customers can select',
+        'Email notifications via Nodemailer for booking confirmations',
+        'Mobile responsiveness, including a hamburger navigation menu',
+        'A CSS design-token system to keep styling consistent across pages',
+        'A security hardening pass: replaced a static session cookie with HMAC-SHA256 signed tokens, rotated exposed credentials, and restricted CORS',
+      ],
+      architecture: ['CUSTOMER', 'SVELTEKIT FRONTEND', 'BACKEND', 'SQLITE / POSTGRESQL'],
+      decisions: [
+        'Started in SvelteKit for a fast, lightweight multi-page site suited to a small business\'s needs, later ported the booking logic to a React/Express/PostgreSQL stack as the project\'s scope and my own stack preferences evolved.',
+        'HMAC-SHA256 signed session tokens over a static session cookie, once the original approach was identified as a security gap during a later audit.',
+      ],
+      challenges:
+        'Working with a real client meant the requirements weren\'t fully fixed upfront — the availability and booking flow went through several revisions as the business owner clarified how she actually wanted to manage her schedule. Finding and fixing the static session cookie vulnerability after the fact was also a reminder to build security in from the start next time, not retrofit it.',
+      learned:
+        'What it actually takes to ship and operate software for a real business — deployment, credential handling, and CORS configuration aren\'t academic exercises once a real client\'s data and reputation are on the line.',
+    },
+  },
+  {
+    id: 'stockaura',
+    number: '002',
     name: 'StockAura',
     tagline: 'Inventory Management Platform',
     summary:
       'A full-stack inventory platform designed to help small businesses manage products, stock levels and operational activity.',
+    built: [
+      'Full CRUD across products, categories and stock movements',
+      'Role-based access control (admin vs. staff permissions)',
+      'Transactional stock movement logging for an auditable trail',
+      'Soft-delete archiving to preserve history instead of destroying records',
+      'Light / dark theme UI',
+    ],
     stack: ['React', 'Express', 'PostgreSQL', 'Prisma', 'JWT / bcrypt'],
     status: 'Feature-complete — preparing for deployment',
     github: 'https://github.com/Arch9Dev',
@@ -58,41 +108,6 @@ export const projects: Project[] = [
         'Modelling stock movements as their own transactional record — rather than just updating a quantity field — took a few iterations to get right, particularly around keeping the running total consistent when multiple movement types (restock, sale, adjustment) needed to be reconciled.',
       learned:
         'How much of an inventory system\'s value comes from its data model rather than its UI — getting the movement/audit trail right early made every feature built on top of it simpler.',
-    },
-  },
-  {
-    id: 'furtherapy',
-    number: '002',
-    name: 'FurTherapy',
-    tagline: 'Booking Platform for a Real Client',
-    summary:
-      'A booking and admin platform built for a canine massage therapy business in Mission Bay, Auckland — a real freelance client, not a coursework exercise.',
-    stack: ['SvelteKit', 'React / Express', 'PostgreSQL', 'Nodemailer'],
-    status: 'In progress — rebuild for redeployment',
-    demo: undefined,
-    screenshot: furtherapyScreenshot,
-    caseStudy: {
-      problem:
-        'The client needed a public-facing site where customers could view services and book appointments, plus an admin view to manage availability — without relying on manual back-and-forth messaging.',
-      solution:
-        'A multi-page booking platform: a marketing homepage, an availability system, a booking wizard for customers, an admin login for the business owner, and automated email notifications so both sides stay informed without manual follow-up.',
-      engineering: [
-        'Admin authentication, separate from the public booking flow',
-        'An availability system driving what booking slots customers can select',
-        'Email notifications via Nodemailer for booking confirmations',
-        'Mobile responsiveness, including a hamburger navigation menu',
-        'A CSS design-token system to keep styling consistent across pages',
-        'A security hardening pass: replaced a static session cookie with HMAC-SHA256 signed tokens, rotated exposed credentials, and restricted CORS',
-      ],
-      architecture: ['CUSTOMER', 'SVELTEKIT FRONTEND', 'BACKEND', 'SQLITE / POSTGRESQL'],
-      decisions: [
-        'Started in SvelteKit for a fast, lightweight multi-page site suited to a small business\'s needs, later ported the booking logic to a React/Express/PostgreSQL stack as the project\'s scope and my own stack preferences evolved.',
-        'HMAC-SHA256 signed session tokens over a static session cookie, once the original approach was identified as a security gap during a later audit.',
-      ],
-      challenges:
-        'Working with a real client meant the requirements weren\'t fully fixed upfront — the availability and booking flow went through several revisions as the business owner clarified how she actually wanted to manage her schedule. Finding and fixing the static session cookie vulnerability after the fact was also a reminder to build security in from the start next time, not retrofit it.',
-      learned:
-        'What it actually takes to ship and operate software for a real business — deployment, credential handling, and CORS configuration aren\'t academic exercises once a real client\'s data and reputation are on the line.',
     },
   },
 ]

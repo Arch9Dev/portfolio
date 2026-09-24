@@ -39,38 +39,58 @@ export default function SelectedWork() {
                 key={project.id}
                 className="overflow-hidden rounded-lg border border-border bg-surface transition-colors hover:border-border/60"
               >
-                <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-                  {project.screenshot ? (
-                    <img
-                      src={project.screenshot}
-                      alt={`${project.name} application preview`}
-                      className="aspect-[4/3] w-full rounded-md border border-border object-cover lg:aspect-auto lg:h-full lg:min-h-[240px]"
-                    />
-                  ) : (
-                    <div
-                      className="flex aspect-[4/3] items-center justify-center rounded-md border border-border bg-surface2 lg:aspect-auto lg:h-full lg:min-h-[240px]"
-                      role="img"
-                      aria-label={`${project.name} application preview placeholder`}
-                    >
-                      <span className="mono text-xs text-muted">
-                        [ APPLICATION SCREENSHOT — PLACEHOLDER ]
-                      </span>
+                <div className="p-6 sm:p-8">
+                  <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-10">
+                    <div>
+                      <p className="mono text-xs tracking-widest text-accent">
+                        PROJECT / {project.number}
+                      </p>
+                      <h3 className="mt-3 text-2xl font-semibold text-ink sm:text-3xl">
+                        {project.name}
+                      </h3>
+                      <p className="mono mt-1 text-xs tracking-wide text-muted">
+                        {project.tagline}
+                      </p>
                     </div>
-                  )}
+
+                    {project.screenshot && (
+                      <div className="overflow-hidden rounded-md border border-border lg:order-last">
+                        <img
+                          src={project.screenshot}
+                          alt={`Screenshot of the ${project.name} interface`}
+                          className="h-full w-full object-cover"
+                          loading="lazy"
+                          width={960}
+                          height={600}
+                        />
+                      </div>
+                    )}
+                  </div>
 
                   <div>
-                    <p className="mono text-xs tracking-widest text-accent">
-                      PROJECT / {project.number}
-                    </p>
-                    <h3 className="mt-3 text-2xl font-semibold text-ink sm:text-3xl">
-                      {project.name}
-                    </h3>
-                    <p className="mono mt-1 text-xs tracking-wide text-muted">
-                      {project.tagline}
-                    </p>
-                    <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
-                      {project.summary}
-                    </p>
+                    <div className="mt-6 grid gap-8 sm:grid-cols-2">
+                      <div>
+                        <p className="mono mb-2 text-[11px] tracking-widest text-accent2">
+                          PROBLEM
+                        </p>
+                        <p className="max-w-md text-sm leading-relaxed text-muted">
+                          {project.summary}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="mono mb-2 text-[11px] tracking-widest text-accent2">
+                          BUILT
+                        </p>
+                        <ul className="space-y-1.5">
+                          {project.built.map((item) => (
+                            <li key={item} className="flex gap-2 text-sm leading-relaxed text-muted">
+                              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
 
                     <div className="mt-6">
                       <p className="mono mb-2 text-[11px] tracking-widest text-muted">
@@ -88,14 +108,27 @@ export default function SelectedWork() {
                       </div>
                     </div>
 
-                    <button
-                      onClick={() => setOpenId(open ? null : project.id)}
-                      aria-expanded={open}
-                      aria-controls={`case-study-${project.id}`}
-                      className="mono mt-7 inline-flex items-center gap-2 text-xs tracking-wide text-accent transition-colors hover:text-ink"
-                    >
-                      {open ? 'HIDE CASE STUDY —' : 'VIEW CASE STUDY →'}
-                    </button>
+                    <div className="mono mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs tracking-wide">
+                      <span className="text-muted">STATUS — {project.status}</span>
+                      {project.demo && (
+                        <a href={project.demo} target="_blank" rel="noreferrer" className="text-accent hover:text-ink">
+                          LIVE DEMO →
+                        </a>
+                      )}
+                      {project.github && (
+                        <a href={project.github} target="_blank" rel="noreferrer" className="text-accent hover:text-ink">
+                          GITHUB →
+                        </a>
+                      )}
+                      <button
+                        onClick={() => setOpenId(open ? null : project.id)}
+                        aria-expanded={open}
+                        aria-controls={`case-study-${project.id}`}
+                        className="mono inline-flex items-center gap-2 text-xs tracking-wide text-accent transition-colors hover:text-ink"
+                      >
+                        {open ? 'HIDE CASE STUDY —' : 'VIEW CASE STUDY →'}
+                      </button>
+                    </div>
                   </div>
                 </div>
 
@@ -173,20 +206,6 @@ export default function SelectedWork() {
                           </p>
                         </div>
                       </div>
-                    </div>
-
-                    <div className="mono mt-10 flex flex-wrap items-center gap-6 border-t border-border pt-6 text-xs tracking-wide">
-                      <span className="text-muted">STATUS — {project.status}</span>
-                      {project.demo && (
-                        <a href={project.demo} target="_blank" rel="noreferrer" className="text-accent hover:text-ink">
-                          LIVE DEMO →
-                        </a>
-                      )}
-                      {project.github && (
-                        <a href={project.github} target="_blank" rel="noreferrer" className="text-accent hover:text-ink">
-                          GITHUB →
-                        </a>
-                      )}
                     </div>
                   </div>
                 )}

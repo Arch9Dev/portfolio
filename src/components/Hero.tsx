@@ -9,9 +9,15 @@ export default function Hero() {
           <h1 className="text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-6xl">
             Benjamin Du Toit
           </h1>
-          <p className="mt-7 max-w-md text-base leading-relaxed text-muted">
-            Software engineering graduate based in Auckland, NZ. <br /> I build full-stack
-            applications, backend systems and practical software products.
+          <p className="mono mt-4 text-sm tracking-wide text-ink sm:text-base">
+            Software Engineer building practical web applications.
+          </p>
+          <p className="mt-5 max-w-md text-base leading-relaxed text-muted">
+            Recent Software Engineering graduate based in Auckland, NZ. I build full-stack
+            applications using React, TypeScript, Python and SQL.
+          </p>
+          <p className="mono mt-4 text-xs tracking-wide text-accent2">
+            Currently looking for graduate and junior software engineering opportunities in Auckland.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -19,7 +25,7 @@ export default function Hero() {
               href="#work"
               className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-medium text-[#08130D] transition-transform hover:translate-x-0.5"
             >
-              View my work
+              View Projects
             </a>
             <a
               href="https://github.com/Arch9Dev"
@@ -28,6 +34,12 @@ export default function Hero() {
               className="mono inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 text-xs tracking-wide text-ink transition-colors hover:border-accent hover:text-accent"
             >
               GITHUB
+            </a>
+            <a
+              href="#contact"
+              className="mono inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 text-xs tracking-wide text-ink transition-colors hover:border-accent hover:text-accent"
+            >
+              CONTACT
             </a>
           </div>
         </div>
@@ -47,7 +59,7 @@ export default function Hero() {
               {[
                 ['Focus', 'SOFTWARE'],
                 ['Location', 'AUCKLAND, NZ'],
-                ['Current Project', 'StockAura  '],
+                ['Current Project', 'FurTherapy  '],
               ].map(([label, value]) => (
                 <div key={label} className="flex items-center justify-between border-t border-border/70 pt-3 first:border-t-0 first:pt-0">
                   <dt className="mono text-xs text-muted">{label}</dt>

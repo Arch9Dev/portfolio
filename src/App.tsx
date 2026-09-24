@@ -2,6 +2,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import CurrentBuild from './components/CurrentBuild'
 import SelectedWork from './components/SelectedWork'
+import Experience from './components/Experience'
 import EngineeringApproach from './components/EngineeringApproach'
 import Skills from './components/Skills'
 import Timeline from './components/Timeline'
@@ -16,6 +17,7 @@ export default function App() {
         <Hero />
         <CurrentBuild />
         <SelectedWork />
+        <Experience />
         <EngineeringApproach />
         <Skills />
         <Timeline />
